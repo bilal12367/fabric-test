@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  test:
+
+# Replace ORG_NAME with organization name
+# Replace ORG_PORT with organization port
+
+services:
+  ca_org2:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.org2.example.com
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=8050
+    ports:
+      - 8050:8050
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./fabric-ca/org2:/etc/hyperledger/fabric-ca-server
+    container_name: ca.org2.example.com
+    hostname: ca.org2.example.com
+    networks:
+      - test

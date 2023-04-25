@@ -1,0 +1,50 @@
+cd vm1/create-certificate-with-ca
+
+./create-certificate-with-ca.sh
+
+cd ../../vm2/create-certificate-with-ca
+
+./create-certificate-with-ca.sh
+
+cd ../../vm3/create-certificate-with-ca
+
+./create-certificate-with-ca.sh
+
+cd ../../artifacts/channel
+
+./create-artifacts.sh
+
+cd ../../vm1/
+
+docker-compose -f docker-network.yml down
+
+sleep 2
+
+docker-compose -f docker-network.yml up -d
+
+cd ../vm2
+
+sleep 2
+
+docker-compose -f docker-network.yml down
+
+sleep 5
+
+docker-compose -f docker-network.yml up -d
+
+cd ../vm3
+
+sleep 2
+
+docker-compose -f docker-network.yml down
+
+sleep 5
+
+docker-compose -f docker-network.yml up -d
+
+sleep 2
+
+cd ../vm1
+
+./createChannel.sh
+
