@@ -11,4 +11,4 @@ NodeOUs:
         OrganizationalUnitIdentifier: admin
     OrdererOUIdentifier:
         Certificate: cacerts/localhost-7050-ca-org1-example-com.pem
-        OrganizationalUnitIdentifier: orderer
+    OrganizationalUnitIdentifier: orderer

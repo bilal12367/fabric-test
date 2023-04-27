@@ -57,8 +57,8 @@ services:
       - test
     volumes:
       - ../artifacts/channel/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/org3.example.com/orderers/orderer3.example.com/msp:/var/hyperledger/orderer/msp
-      - ./crypto-config/ordererOrganizations/org3.example.com/orderers/orderer3.example.com/tls:/var/hyperledger/orderer/tls
+      - ../vm1/crypto-config/ordererOrganizations/org1.example.com/orderers/orderer3.example.com/msp:/var/hyperledger/orderer/msp
+      - ../vm1/crypto-config/ordererOrganizations/org1.example.com/orderers/orderer3.example.com/tls:/var/hyperledger/orderer/tls
 
   couchdb4:
     container_name: couchdb4

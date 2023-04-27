@@ -3,10 +3,26 @@ version: '3'
 networks:
   test:
 
-# Replace ORG_NAME with organization name
-# Replace ORG_PORT with organization port
+    # Replace ORG_NAME with organization name
+    # Replace ORG_PORT with organization port
 
 services:
+  ca_orderer:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-orderer
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=7056
+    ports:
+      - "7056:7056"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server
+    container_name: ca_orderer
+    networks:
+      - test
+
   ca_org1:
     image: hyperledger/fabric-ca
     environment:
