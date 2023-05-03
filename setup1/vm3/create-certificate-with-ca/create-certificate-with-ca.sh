@@ -120,7 +120,7 @@ createCertificateFororg3() {
     echo "Generating Peer1 tls"
     echo
     
-    fabric-ca-client enroll -u https://peer1:peer1pw@localhost:9050 --caname ca.org3.example.com -M ${PWD}/crypto-config/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls --enrollment.profile tls --csr.hosts peer1.org3.example.com --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
+    fabric-ca-client enroll -u https://peer1:peer1pw@localhost:9050 --caname ca.org3.example.com -M ${PWD}/crypto-config/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls --enrollment.profile tls --csr.hosts peer1.org3.example.com --csr.hosts localhost --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
 
     
 

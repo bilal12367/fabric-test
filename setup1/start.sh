@@ -48,3 +48,26 @@ cd ../vm1
 
 ./createChannel.sh
 
+cd ../vm2
+
+./joinChannel.sh
+
+cd ../vm3
+
+./joinChannel.sh
+
+cd ../vm1
+
+./deployChaincode.sh start
+
+cd ../vm2
+
+./installAndApprove.sh
+
+cd ../vm3
+
+./installAndApprove.sh
+
+cd ../vm1
+
+./deployChaincode.sh init
